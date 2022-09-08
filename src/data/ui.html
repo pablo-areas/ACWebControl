@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Control AC</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="pull-right">
+                <a id="power-btn" class="btn btn-default" onclick='power_onclick();'>
+                    <img src="power.svg" alt="Power" style="width: 24px; height: 24px; margin-right: 5px; vertical-align:middle;">
+                    <b style="font-size:1.5em; vertical-align:middle;" id="power"> OFF</b>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="pull-left">
+				<div class="btn-group">
+					<a class="btn btn-default mode-btn" id="mode_cooling" onclick='mode_onclick(1);'>
+						<img src="mcool.svg" alt="Cool" height="32">
+					</a>
+					<a class="btn btn-default mode-btn" id="mode_heating" onclick='mode_onclick(3);'>
+						<img src="mheat.svg" alt="Heat" height="32">						
+					</a>
+					</a>
+					<a class="btn btn-default mode-btn" id="mode_fan" onclick='mode_onclick(4);'>
+						<img src="mfan.svg" alt="Fan" height="32">
+					</a>
+					<a class="btn btn-default mode-btn" id="mode_dehum" onclick='mode_onclick(2);'>
+						<img src="mdry.svg" alt="Dry" height="32">
+					</a>
+					<a class="btn btn-default mode-btn" id="mode_auto" onclick='mode_onclick(0);'>
+						<img src="mauto.svg" alt="Auto" height="32">
+					</a>
+				</div>
+            </div>
+
+            <div class="pull-left">
+				<div class="container-function">						
+					<img src="fan.svg" alt="Fan" height="32">
+					<div class="btn-group">
+						<a class="btn btn-default" onclick='fan_onclick(1);'><img src="level_1_off.svg" alt="20%" height="32" id="fan_lvl_1"></a>
+						<a class="btn btn-default" onclick='fan_onclick(2);'><img src="level_2_off.svg" alt="40%" height="32" id="fan_lvl_2"></a>
+						<a class="btn btn-default" onclick='fan_onclick(3);'><img src="level_3_off.svg" alt="100%" height="32" id="fan_lvl_3"></a>
+						<a class="btn btn-default fan-btn" id="fan_auto" onclick='fan_onclick("0");'><img src="fanauto.svg" alt="Auto" height="32"></a>
+					</div>
+				</div>
+            </div>
+        </div>
+
+		<div class="row">
+            <div class="pull-left">
+				<div class="container-function">						
+					<img src="timeroff.svg" alt="Timer Off" height="32">
+					<a class="btn btn-default" onclick='timeroff_onclick(1);' id="toff1">0.5h</a>
+					<a class="btn btn-default" onclick='timeroff_onclick(2);' id="toff2">1h</a>
+					<a class="btn btn-default" onclick='timeroff_onclick(3);' id="toff3">2h</a>
+				</div>
+            </div>
+		</div>
+
+		<div class="pull-center">
+			<div class="btn-group" >
+				<a class="btn btn-default" style="font-size:3em;padding:8px;"><b id="target_temp"> ~ C</b></a>
+			</div>
+			
+			<div class="btn-group-vertical">
+				<a class="btn btn-default wing-btn" id="target_temp_up" onclick='temp_onclick(1);' style="padding-top:0px;padding-bottom:0px;"><img src="up.svg" alt="Up" height="32"></a>
+				<a class="btn btn-default wing-btn"	id="target_temp_down" onclick='temp_onclick(-1);' style="padding-top:0px;padding-bottom:0px;"><img src="down.svg" alt="Down" height="32"></a>
+			</div>
+
+			<a id="led-btn" class="btn btn-default hide" onclick='led_onclick();'>
+				<img src="led.svg" alt="Led" style="width: 32px; vertical-align:middle;">
+			</a>
+		</div>
+
+        <div class="row">
+            <div class="pull-left">
+				<span class="btn btn-txt">ambiente: <b id="ambient_temp"> ~ C</b></san>
+			</div>
+		</div>
+    </div>
+
+	<script src="jquery.min.js"></script>
+	<script src="ui.js"></script>
+</body>
+</html>
